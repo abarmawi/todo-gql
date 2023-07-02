@@ -14,7 +14,8 @@ $ npm run prepare
 ## Features
 
 - Typescript support
-- Code formating and linting using:
+- nodemon for local development
+- Code formatting and linting using:
   - eslint
   - prettier
 - pre-commit hooks using:
