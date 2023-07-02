@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node src/index.js",
-    "start:dev": "ts-node src/index.ts",
+    "start:dev": "nodemon src/index.ts",
     "prebuild": "rm -rf dist",
     "prettifying": "prettier --write --check .",
     "lint": "eslint . --fix",
@@ -23,6 +23,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
