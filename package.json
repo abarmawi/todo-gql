@@ -2,19 +2,34 @@
   "name": "amie",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "prebuild": "rm -rf dist"
-  },
+  "author": "",
+  "license": "ISC",
+  "main": "src/index.ts",
   "engines": {
     "node": ">=16"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "rm -rf dist",
+    "prettifying": "prettier --write --check .",
+    "lint": "eslint . --fix",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^2.8.8",
     "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*.@(ts|js)": [
+      "npm run lint"
+    ],
+    "*": [
+      "npm run prettifying"
+    ]
   }
 }
