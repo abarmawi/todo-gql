@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: 'src/gql/schemas/**/*.gql',
   generates: {
-    'src/gql/resolvers/__generated__/graphql.ts': {
+    'src/gql/__generated__/graphql.ts': {
       plugins: ['typescript', 'typescript-resolvers'],
       config: {
         namingConvention: {
