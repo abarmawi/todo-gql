@@ -19,7 +19,6 @@ The run the following
 ```
 $ npm install
 $ npm run prepare
-$ npm run gql:codegen
 ```
 
 ## How to start the app locally
@@ -27,6 +26,7 @@ $ npm run gql:codegen
 To start the app, run the following
 
 ```
+$ npm run gql:codegen
 $ npm run start:dev
 ```
 
