@@ -1,2 +1,12 @@
 node_modules
+.vscode
+
+# outputs
 dist
+
+# env files
+.env*
+!.env.example
+
+# gqls
+__generated__

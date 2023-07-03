@@ -11,5 +11,6 @@
   "rules": {
     "no-console": 1, // Means warning
     "prettier/prettier": 2 // Means error
-  }
+  },
+  "ignorePatterns": ["src/gql/resolvers/__generated__/graphql.ts"]
 }

@@ -4,12 +4,33 @@
 
 - Nodejs >=16
 
-## How to start
+## App setup
+
+In order to run the app, some of the environment variables should be set. follow these setups to setup them:
+
+```
+$ cp .env.example .env
+```
+
+Open `.env` and you will find all the needed environment variables. the environment variables are self explained, though i added a quick note next to each one.
+
+The run the following
 
 ```
 $ npm install
 $ npm run prepare
+$ npm run gql:codegen
 ```
+
+## How to start the app locally
+
+To start the app, run the following
+
+```
+$ npm run start:dev
+```
+
+This will run the app on the defined PORT env variable in the .env file
 
 ## Features
 

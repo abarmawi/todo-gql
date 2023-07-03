@@ -15,9 +15,14 @@
     "prebuild": "rm -rf dist",
     "prettifying": "prettier --write --check .",
     "lint": "eslint . --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gql:codegen": "graphql-codegen --config codegen.ts"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "4.0.1",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-resolvers": "4.0.1",
+    "@types/node": "^20.3.3",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -35,5 +40,9 @@
     "*": [
       "npm run prettifying"
     ]
+  },
+  "dependencies": {
+    "@apollo/server": "^4.7.5",
+    "@graphql-tools/load-files": "^7.0.0"
   }
 }
