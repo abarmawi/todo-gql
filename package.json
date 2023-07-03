@@ -10,14 +10,14 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node src/index.js",
+    "prebuild": "rm -rf dist",
+    "gql:codegen": "graphql-codegen --config codegen.ts",
+    "start:prod": "node src/index.js",
     "start:dev": "nodemon src/index.ts",
     "prestart:dev": "npm run gql:codegen",
-    "prebuild": "rm -rf dist",
-    "prettifying": "prettier --write --check .",
-    "lint": "eslint . --fix",
     "prepare": "husky install",
-    "gql:codegen": "graphql-codegen --config codegen.ts"
+    "prettifying": "prettier --write --check .",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.1",
