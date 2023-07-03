@@ -35,6 +35,7 @@ This will run the app on the defined PORT env variable in the .env file
 ## Features
 
 - Typescript support
+- gql interface
 - nodemon for local development
 - Code formatting and linting using:
   - eslint
@@ -42,3 +43,4 @@ This will run the app on the defined PORT env variable in the .env file
 - pre-commit hooks using:
   - lint-staged
   - husky
+- nodemon for local development

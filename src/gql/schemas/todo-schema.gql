@@ -1,0 +1,27 @@
+enum TodoStatus {
+  "Todo is pending"
+  PENDING
+  "Todo is completed"
+  COMPLETED
+}
+
+input TodoSearchParams {
+  status: TodoStatus = PENDING
+}
+
+type Todo {
+  "The todo"
+  content: String!
+  "The status"
+  status: TodoStatus!
+}
+
+type Mutation {
+  "Creates a new pending todo"
+  addTodo(content: String!): Todo!
+}
+
+type Query {
+  "Returns all todos that are pending by default"
+  todos(searchParams: TodoSearchParams!): [Todo!]!
+}
