@@ -12,6 +12,7 @@
     "build": "tsc",
     "start": "node src/index.js",
     "start:dev": "nodemon src/index.ts",
+    "prestart:dev": "npm run gql:codegen",
     "prebuild": "rm -rf dist",
     "prettifying": "prettier --write --check .",
     "lint": "eslint . --fix",
