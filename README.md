@@ -5,6 +5,22 @@
 - Nodejs >=16
 - docker - optional
 
+## Quick run (super fats!)
+
+If you want to run the App quickly without going through this README file, then follow these setups.
+If you want more details and explanation, then better to read the section in this README file
+
+```
+$ echo PORT=3000\nAPP_DB_URI='postgres://postgres:123456@localhost:5432/amie' > .env
+$ docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=123456 -d postgres
+$ npm install
+$ npx sequelize-cli db:create
+$ npx sequelize-cli db:migrate
+$ npm run start:dev
+```
+
+The the app should run on http://localhost:3000
+
 ## App setup
 
 In order to run the app, some of the environment variables should be set. follow these steps to set them:
