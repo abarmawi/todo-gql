@@ -11,7 +11,7 @@ If you want to run the App quickly without going through this README file, then 
 If you want more details and explanation, then better to read the section in this README file
 
 ```
-$ echo PORT=3000\nAPP_DB_URI='postgres://postgres:123456@localhost:5432/todo' > .env
+$ echo PORT=3000\nAPP_DB_URI='postgres://postgres:123456@localhost:5432/todo'\nAPP_MOCK_TODO_SERVER=https://64a45145c3b509573b576466.mockapi.io/api/v1/todos > .env
 $ docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=123456 -d postgres
 $ npm install
 $ npx sequelize-cli db:create
@@ -33,6 +33,7 @@ Open `.env` and you will find all the needed environment variables. the environm
 
 - `PORT` the port number the app will use to run. default is `3000`
 - `APP_DB_URI` the postgres db uri. example `'postgres://postgres:123456@localhost:5432/todo'`
+- `APP_MOCK_TODO_SERVER` the todo mock server. for this task, please use this value `'https://64a45145c3b509573b576466.mockapi.io/api/v1/todos'`
 
 Then run the following commands
 

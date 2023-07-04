@@ -1,5 +1,6 @@
 import { TodoModel, TodoStatus } from '../db/models/todo';
 import { TodoListModel } from '../db/models/todo-list';
+import { TodoExternalService } from './todo-external-service';
 
 export class TodoHandler {
   private static _todoHandler: TodoHandler;
@@ -9,19 +10,42 @@ export class TodoHandler {
       return this._todoHandler;
     }
 
-    this._todoHandler = new TodoHandler();
+    this._todoHandler = new TodoHandler(TodoExternalService.instance);
     return this._todoHandler;
   }
+
+  constructor(private todoExternalService: TodoExternalService) {}
 
   async createTodo(userId: number, title: string, todoListId?: number | null, todoListName?: string | null) {
     const _todoListId = await this.getTodoListId(userId, todoListId, todoListName);
 
-    const todo = await TodoModel.create({
-      userId,
-      title,
-      todoListId: _todoListId,
-    });
+    const transaction = await TodoModel.sequelize!.transaction();
 
+    const todo = await TodoModel.create(
+      {
+        userId,
+        title,
+        todoListId: _todoListId,
+      },
+      {
+        transaction,
+      },
+    );
+
+    try {
+      const externalServiceId = await this.todoExternalService.create(todo);
+
+      todo.externalServiceId = externalServiceId;
+      todo.save();
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('An error occurred while creating/syncing a todo', error);
+      await transaction.rollback();
+
+      throw error;
+    }
+
+    await transaction.commit();
     return todo;
   }
 
@@ -42,17 +66,33 @@ export class TodoHandler {
     if (title) {
       values['title'] = title;
     }
+
+    const transaction = await TodoModel.sequelize!.transaction();
+
     const todo = await TodoModel.update(values, {
       where: {
         userId,
         id: todoId,
       },
       returning: true,
+      transaction,
     });
 
     if (!todo[0]) {
       throw new Error('No affected rows');
     }
+
+    try {
+      await this.todoExternalService.update(todo[1][0]);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('An error occurred while updating/syncing a todo', error);
+      await transaction.rollback();
+
+      throw error;
+    }
+
+    await transaction.commit();
     return todo[1][0];
   }
 

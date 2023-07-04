@@ -12,6 +12,7 @@ export class TodoModel extends Model {
   title!: string;
   status!: TodoStatus;
   todoListId?: number;
+  externalServiceId?: string;
 }
 
 TodoModel.init(
@@ -36,6 +37,10 @@ TodoModel.init(
       type: DataTypes.SMALLINT,
       allowNull: false,
       defaultValue: TodoStatus.Pending,
+    },
+    externalServiceId: {
+      type: DataTypes.STRING,
+      defaultValue: null,
     },
   },
   {

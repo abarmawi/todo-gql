@@ -7,7 +7,7 @@ export const connectToDb = async () => {
     return Promise.resolve(sequelize);
   }
 
-  const _sequelize = new Sequelize(process.env.APP_DB_URI!, {
+  const _sequelize = new Sequelize(process.env.APP_DB_URI, {
     dialect: 'postgres',
   });
 
