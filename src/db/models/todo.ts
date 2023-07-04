@@ -6,7 +6,13 @@ export enum TodoStatus {
   Completed = 2,
 }
 
-export class TodoModel extends Model {}
+export class TodoModel extends Model {
+  declare id: number;
+  userId!: number;
+  title!: string;
+  status!: TodoStatus;
+  todoListId?: number;
+}
 
 TodoModel.init(
   {
@@ -15,7 +21,7 @@ TodoModel.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    parentListId: {
+    todoListId: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -34,6 +40,8 @@ TodoModel.init(
   },
   {
     sequelize: getDb(),
-    modelName: 'TodoList',
+    modelName: 'Todo',
+    freezeTableName: true,
+    tableName: 'Todo',
   },
 );

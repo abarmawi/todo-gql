@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   async up(queryInterface) {
-    await queryInterface.addIndex('Todo', ['parentListId'], {
-      name: 'todo_parent_list_id',
+    await queryInterface.addIndex('Todo', ['todoListId'], {
+      name: 'todo_todo_list_id',
     });
     await queryInterface.addIndex('Todo', ['status'], {
       name: 'todo_status',
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.removeIndex('Todo', 'todo_parent_list_id');
+    await queryInterface.removeIndex('Todo', 'todo_todo_list_id');
     await queryInterface.removeIndex('Todo', 'todo_status');
     await queryInterface.removeIndex('Todo', 'todo_user_id');
     await queryInterface.removeIndex('TodoList', 'todo_list_user_id');

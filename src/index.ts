@@ -26,6 +26,11 @@ async function main() {
   //  3. prepares your app to handle incoming requests
   const { url } = await startStandaloneServer(server, {
     listen: { port: Number(process.env.port || 3000) },
+    context: async () => {
+      return Promise.resolve({
+        userId: 1,
+      });
+    },
   });
 
   return url;

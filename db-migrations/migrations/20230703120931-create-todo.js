@@ -25,7 +25,7 @@ module.exports = {
         defaultValue: 1,
         allowNull: false,
       },
-      parentListId: {
+      todoListId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'TodoList',

@@ -7,21 +7,53 @@ enum TodoStatus {
 
 input TodoSearchParams {
   status: TodoStatus = PENDING
+  todoListId: Int
+  limit: Int
+  offset: Int
 }
 
 type Todo {
+  id: Int!
   "The todo"
-  content: String!
+  title: String!
   "The status"
   status: TodoStatus!
+  "The list id this todo belongs to"
+  todoListId: Int
+  "The list this todo belongs to"
+  todoList: TodoList
+}
+
+type TodoList {
+  id: Int!
+  "The todo"
+  title: String!
+  "The status"
+  todos(limit: Int, offset: Int): [Todo!]
 }
 
 type Mutation {
-  "Creates a new pending todo"
-  addTodo(content: String!): Todo!
+  "Creates a new todo list."
+  createTodoList(title: String!): TodoList!
+
+  "Updates todo list."
+  updateTodoList(todoListId: Int!, title: String): TodoList!
+
+  """
+  Creates a new pending todo.
+  if todoListId is provided, then the todo will be added to that list.
+  else, a new list will be created using todoListListName, and the todo will be added to that new list.
+  """
+  createTodo(title: String!, todoListId: Int, todoListListName: String): Todo!
+
+  "Updates todo."
+  updateTodo(todoId: Int!, status: TodoStatus, title: String): Todo!
 }
 
 type Query {
-  "Returns all todos that are pending by default"
+  "Returns all todos. Returns pending by default"
   todos(searchParams: TodoSearchParams!): [Todo!]!
+
+  "Returns all todo lists and their todos"
+  todoLists: [TodoList!]!
 }
