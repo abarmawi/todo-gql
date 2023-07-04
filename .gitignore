@@ -13,3 +13,6 @@ __generated__
 
 # jest
 coverage
+
+# docusaurus
+.docusaurus
