@@ -42,9 +42,9 @@ type Mutation {
   """
   Creates a new pending todo.
   if todoListId is provided, then the todo will be added to that list.
-  else, a new list will be created using todoListListName, and the todo will be added to that new list.
+  else, a new list will be created using todoListName, and the todo will be added to that new list.
   """
-  createTodo(title: String!, todoListId: Int, todoListListName: String): Todo!
+  createTodo(title: String!, todoListId: Int, todoListName: String): Todo!
 
   "Updates todo."
   updateTodo(todoId: Int!, status: TodoStatus, title: String): Todo!

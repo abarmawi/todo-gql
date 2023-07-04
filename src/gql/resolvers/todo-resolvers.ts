@@ -58,7 +58,7 @@ export const resolvers: Resolvers = {
         contextValue.userId,
         args.title,
         args.todoListId,
-        args.todoListListName,
+        args.todoListName,
       );
 
       return toGQLTodo(todo);

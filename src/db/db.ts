@@ -7,7 +7,8 @@ export const connectToDb = async () => {
     return Promise.resolve(sequelize);
   }
 
-  const _sequelize = new Sequelize(process.env.APP_DB_URI, {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const _sequelize = new Sequelize(process.env.APP_DB_URI!, {
     dialect: 'postgres',
   });
 
