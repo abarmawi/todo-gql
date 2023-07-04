@@ -2,6 +2,17 @@
 sidebar_position: 1
 ---
 
+## Intro
+
+- This project use Apollo graphql to resolve the queriers and mutations
+- It integrates with an [mockapi](https://64a45145c3b509573b576466.mockapi.io/) as external Todo mock server.
+  - you can browse all the todos [here](https://64a45145c3b509573b576466.mockapi.io/api/v1/todos)
+- The app doesn't provide authentication, but it has a hardcoded user id configured in `startStandaloneServer` [here](./src/index.ts)
+- there are many ways to enhance the app such as the following
+  - Add authentication & authorization
+  - Deploy the app using CI/CD
+  - Add integration and APIs tests
+
 # Setup
 
 ## Requirements
