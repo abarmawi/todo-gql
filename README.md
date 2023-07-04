@@ -53,6 +53,12 @@ $ npm run start:dev
 
 This will run the app on the defined PORT in the .env file
 
+## Run test
+
+```
+$ npm test
+```
+
 ## Features
 
 - Typescript support
@@ -67,3 +73,4 @@ This will run the app on the defined PORT in the .env file
   - lint-staged
   - husky
 - nodemon for local development
+- using Jest for unit testing

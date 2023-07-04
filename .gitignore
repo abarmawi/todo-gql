@@ -10,3 +10,6 @@ dist
 
 # gqls
 __generated__
+
+# jest
+coverage
