@@ -1,4 +1,4 @@
-# Amie Todo task
+# Todo task
 
 ## Requirements
 
@@ -11,7 +11,7 @@ If you want to run the App quickly without going through this README file, then 
 If you want more details and explanation, then better to read the section in this README file
 
 ```
-$ echo PORT=3000\nAPP_DB_URI='postgres://postgres:123456@localhost:5432/amie' > .env
+$ echo PORT=3000\nAPP_DB_URI='postgres://postgres:123456@localhost:5432/todo' > .env
 $ docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=123456 -d postgres
 $ npm install
 $ npx sequelize-cli db:create
@@ -32,7 +32,7 @@ $ cp .env.example .env
 Open `.env` and you will find all the needed environment variables. the environment variables are self explained. following are the needed variables
 
 - `PORT` the port number the app will use to run. default is `3000`
-- `APP_DB_URI` the postgres db uri. example `'postgres://postgres:123456@localhost:5432/amie'`
+- `APP_DB_URI` the postgres db uri. example `'postgres://postgres:123456@localhost:5432/todo'`
 
 Then run the following commands
 
