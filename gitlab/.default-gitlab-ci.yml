@@ -1,0 +1,40 @@
+image: docker:latest
+
+variables:
+  NODE_BASE_IMAGE: node:16-alpine
+
+cache:
+  key: node_modules
+  paths:
+    - node_modules/
+
+stages:
+  - install-dependencies
+  - pre-deploy
+
+install-dependencies:
+  stage: install-dependencies
+  image: $NODE_BASE_IMAGE
+  script:
+    - npm ci
+
+lint:
+  stage: pre-deploy
+  image: $NODE_BASE_IMAGE
+  script:
+    - npm run lint
+
+prettifying:
+  stage: pre-deploy
+  image: $NODE_BASE_IMAGE
+  script:
+    - npm run prettifying
+
+build:
+  stage: pre-deploy
+  image: $NODE_BASE_IMAGE
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
