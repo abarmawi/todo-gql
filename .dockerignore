@@ -1,0 +1,8 @@
+# by default, ignoring all files and folders
+*
+# except the following
+!packages/backend-gql
+!package.json
+!package-lock.json
+!tsconfig.json
+!codegen.ts

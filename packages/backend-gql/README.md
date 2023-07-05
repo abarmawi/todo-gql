@@ -94,6 +94,11 @@ This will run the app on the defined PORT in the .env file
 $ npm test -w backend-gql
 ```
 
+```bash
+$ docker build -t amie .
+$ docker run --env-file=./packages/backend-gql/.env --rm amie
+```
+
 ## Features
 
 - Typescript support

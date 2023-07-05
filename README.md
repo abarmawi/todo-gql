@@ -97,6 +97,13 @@ $ npm start -w docs
 $ npm test -w backend-gql
 ```
 
+## build docker image
+
+```bash
+$ docker build -t amie .
+$ docker run --env-file=./packages/backend-gql/.env --rm amie
+```
+
 ## Features
 
 - Monorepo architecture using npm workspaces
