@@ -1,9 +1,3 @@
----
-sidebar_position: 1
----
-
-# Todo task
-
 # Todo task
 
 ## Intro

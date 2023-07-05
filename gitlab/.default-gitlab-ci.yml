@@ -34,7 +34,7 @@ build:
   stage: pre-deploy
   image: $NODE_BASE_IMAGE
   script:
-    - npm run build
+    - npm run build -w backend-gql
   artifacts:
     paths:
       - dist/
