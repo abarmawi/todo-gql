@@ -24,7 +24,7 @@ sidebar_position: 1
 - [Node.js>=16](https://nodejs.org/en/download/)
 - docker - optional
 
-## Quick run (super fats!)
+## Quick run (super fast!)
 
 If you want to run the App quickly without going through this README file, then follow these setups.
 If you want more details and explanation, then better to read the section in this README file
