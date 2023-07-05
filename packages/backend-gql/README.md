@@ -91,7 +91,7 @@ This will run the app on the defined PORT in the .env file
 ## Run test
 
 ```bash
-$ npm test
+$ npm test -w backend-gql
 ```
 
 ## Features
