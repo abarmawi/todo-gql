@@ -3,12 +3,12 @@
 ## Intro
 
 - This project use Apollo graphql to resolve the queriers and mutations
-- It integrates with an [mockapi](https://64a45145c3b509573b576466.mockapi.io/) as external Todo mock server.
+- It integrates with [mockapi](https://64a45145c3b509573b576466.mockapi.io/) as external Todo mock server.
   - you can browse all the todos [here](https://64a45145c3b509573b576466.mockapi.io/api/v1/todos)
   - After creating and updating a todo, it will be synced with this mock server
-- The app doesn't provide authentication, even though it has a hardcoded user id configured in `startStandaloneServer` [here](./src/index.ts)
+- The app doesn't provide authentication, but it has a hardcoded user id configured in `startStandaloneServer` [here](./src/index.ts)
 - there are many ways to enhance the app as the following
-  - Add authentication & authorization
+  - Add authentication & authorization using JWT token
   - Deploy the app using CI/CD
   - Add integration and APIs tests
 
@@ -29,6 +29,12 @@ $ npm install
 $ npx sequelize-cli db:create
 $ npx sequelize-cli db:migrate
 $ npm run start:dev
+# in a different terminal run
+$ cd docs
+$ npm start
+# in a different terminal run
+$ cd docs
+$ npm start
 ```
 
 The the app should run on [http://localhost:3000](http://localhost:3000)
