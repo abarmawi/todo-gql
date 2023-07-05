@@ -9,9 +9,9 @@ sidebar_position: 1
   - you can browse all the todos [here](https://64a45145c3b509573b576466.mockapi.io/api/v1/todos)
 - The app doesn't provide authentication, but it has a hardcoded user id configured in `startStandaloneServer` [here](./src/index.ts)
 - there are many ways to enhance the app such as the following
-  - Add authentication & authorization
-  - Deploy the app using CI/CD
+  - Add authentication & authorization using JWT token
   - Add integration and APIs tests
+  - and many other
 
 # Setup
 

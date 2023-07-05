@@ -9,8 +9,8 @@
 - The app doesn't provide authentication, but it has a hardcoded user id configured in `startStandaloneServer` [here](./src/index.ts)
 - there are many ways to enhance the app as the following
   - Add authentication & authorization using JWT token
-  - Deploy the app using CI/CD
   - Add integration and APIs tests
+  - and many other
 
 ## Requirements
 
