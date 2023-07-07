@@ -104,8 +104,8 @@ $ npm test -w backend-gql
 ```
 
 ```bash
-$ docker build -t amie .
-$ docker run --env-file=./packages/backend-gql/.env --rm amie
+$ docker build -t todo .
+$ docker run --env-file=./packages/backend-gql/.env --rm todo
 ```
 
 ## Features
